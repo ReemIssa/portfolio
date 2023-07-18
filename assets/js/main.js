@@ -334,6 +334,7 @@ let filters = document.querySelectorAll('[data-filter]');
         currentPage = 0;
         loadProjects(currentPage, limit);
     }else{
+       loadingProjects = true;
         const response = getFilteredProjects(e.target.dataset.filter);
         //const data = JSON.parse(JSON.stringify(response));
         // show quotes

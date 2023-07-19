@@ -276,7 +276,7 @@ const loadProjects = async (page, limit) => {
     hideLoader();
     loadingProjects = false;
 }
-}, 2000);
+}, 1500);
 
 };
 
@@ -321,6 +321,7 @@ function createPortfolioItem(project) {
     projectsEl.append(fragment);
 }
 let filters = document.querySelectorAll('[data-filter]');
+let portfolioFilters = select('#portfolio-flters li', true);
 
     /**
      * Porfolio isotope and filter
@@ -329,7 +330,11 @@ let filters = document.querySelectorAll('[data-filter]');
         for (const element of filters) {
     element.addEventListener("click", e => {
     const portfolioContainerDiv = document.querySelector('#portfolio-container');
-    portfolioContainerDiv.innerHTML='';
+    portfolioFilters.forEach(function(el) {
+          el.classList.remove('filter-active');
+        });
+        this.classList.add('filter-active');
+      portfolioContainerDiv.innerHTML='';
     if(e.target.dataset.filter == '*'){
         currentPage = 0;
         loadProjects(currentPage, limit);

@@ -333,7 +333,7 @@ let portfolioFilters = select('#portfolio-flters li', true);
     portfolioFilters.forEach(function(el) {
           el.classList.remove('filter-active');
         });
-        this.classList.add('filter-active');
+          e.target.classList.add('filter-active');
       portfolioContainerDiv.innerHTML='';
     if(e.target.dataset.filter == '*'){
         currentPage = 0;

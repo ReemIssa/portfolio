@@ -480,6 +480,20 @@
           emailjs.init("egxTb5yw-Arl9HC4h");
       })();
   </script>
+	 <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // these IDs from the previous steps
+                emailjs.sendForm('service_bzdzfyr', 'contactForm', this)
+                    .then(() => {
+                        console.log('SUCCESS!');
+                    }, (error) => {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
 </body>
 
 </html>
